@@ -1,0 +1,51 @@
+{
+    "hello": [
+        "Hi! How can I help you?",
+        "Hello! Ask me your doubt."
+    ],
+    "hi": [
+        "Hey there! What do you need help with?"
+    ],
+    "what is python": [
+        "Python is a high-level programming language used in AI, web, and more."
+    ],
+    "what is ai": [
+        "AI stands for Artificial Intelligence."
+    ],
+    "what is dbms": [
+        "DBMS stands for Database Management System."
+    ],
+    "what is os": [
+        "OS means Operating System, which manages computer hardware."
+    ],
+    "what is cpu": [
+        "CPU is the brain of the computer."
+    ],
+    "what is ram": [
+        "RAM is temporary memory used while programs are running."
+    ],
+    "what is algorithm": [
+        "An algorithm is a step-by-step procedure to solve a problem."
+    ],
+    "what is data structure": [
+        "A data structure is a way to organize and store data."
+    ],
+    "5*3": [
+        "15"
+    ],
+    "ML": [
+        "Machine Learning is a subset of AI that allows computers to learn from data."
+    ],
+    "program": [
+        "its a main level code to run a certain task"
+    ],
+    "random": [
+        "its a thing which was happening unexpectedly"
+    ],
+    "ranjith": [
+        "he is the owner of saravana bakes"
+    ],
+    "ml": [
+        "machine learning is a subset of ai that allows computers to learn from data."
+    ]
+}

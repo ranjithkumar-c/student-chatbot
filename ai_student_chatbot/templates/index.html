@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+        }
+
+        .chat-container {
+            width: 400px;
+            height: 600px;
+            margin: 40px auto;
+            background: #1e293b;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px black;
+        }
+
+        .header {
+            padding: 15px;
+            background: #3b82f6;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .chat-box {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 8px;
+            border-radius: 10px;
+            max-width: 75%;
+        }
+
+        .user {
+            background: #22c55e;
+            align-self: flex-end;
+        }
+
+        .bot {
+            background: #334155;
+            align-self: flex-start;
+        }
+
+        .input-box {
+            display: flex;
+            border-top: 1px solid #444;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #3b82f6;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="chat-container">
+    <div class="header">🎓 Student Doubt Chatbot</div>
+
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="input-box">
+        <input type="text" id="userInput" placeholder="Ask your doubt...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function addMessage(text, type) {
+    let msg = document.createElement("div");
+    msg.className = "message " + type;
+    msg.innerText = text;
+    document.getElementById("chatBox").appendChild(msg);
+}
+
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let message = input.value;
+
+    if (message.trim() === "") return;
+
+    addMessage(message, "user");
+
+    fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(res => res.json())
+    .then(data => {
+        addMessage(data.reply, "bot");
+        document.getElementById("chatBox").scrollTop = chatBox.scrollHeight;
+    });
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
